@@ -1,7 +1,7 @@
 
 @echo off
 digital clock
-@mode con cols = 30 lines
+@mode con cols = 30 lines = 7
 color 00
 :main
 cls
