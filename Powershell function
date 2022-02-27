@@ -1,0 +1,7 @@
+#Function Ping
+function p {
+
+param ($computername)
+return (test-connection $computername -count 1) # -quiet gibt "true" oder "false" aus, muss in der Klammer stehen
+
+}
