@@ -1,0 +1,1 @@
+Get-ADComputer -Filter * -Properties * | Sort-Object Name, LastlogonDate | Format-Table Name, LastLogonDate
