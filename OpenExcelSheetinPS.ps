@@ -1,0 +1,27 @@
+#create PS-Object "Excel" and open "Excel-Object"
+
+$Excel = New-Object -ComObject Excel.Application
+$Excel.Visible = $true
+$Excel.DisplayAlerts = $false
+
+#activate workbook with Name (String)
+    #$Excel.Workbook.Item("<Name>").activate()
+
+#open worbook on a drive path
+    #$Excel.workbooks.Open("<Path>")
+        
+
+#Pfadeingabe manuell (über promteingabe copy6paste)
+    #$input = Read-Host -Prompt "Bitte einen gültigen Pfad angeben"
+    
+
+#Pfadauswahl über Menü:
+# $input = <path> |  Out-GridView -PassThru -Title "Bitte einen Pfad auswählen:"  "piped" den inputpath der als String vorhanden ist nach OUT-GRIDVIEW zeigt also ein Auswahlmenü an
+
+$input = <"path"> |  Out-GridView -PassThru -Title "Bitte einen Pfad auswählen:"
+$Excel.workbooks.Open($input)
+Pause
+
+$excel.Quit()
+Get-Process | Where-Object {$_.name -Match 'Excel'} | Stop-Process 
+echo "Excel wurde geschlossen, und der Prozess beendet, bis bald"
