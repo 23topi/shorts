@@ -1,0 +1,3 @@
+$Id = Read-Host -Prompt "Bitte eine Id eingeben"
+Kill $Id
+echo "Der Prozess mit der ID $Id ist getötet"
