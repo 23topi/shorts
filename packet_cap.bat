@@ -6,6 +6,6 @@ Set /p tracedatei=
 @ECHO OFF
 netsh trace start capture=yes tracefile=%tracedatei% persistent=yes maxsize=4096
 
-@ECHO Wenn Sie das Netzwerkmonitoring beenden moechten bitte Enter druecken
+@ECHO Wenn Sie das Netzwerkmonitoring/Netzwerkcapturing beenden moechten bitte Enter druecken
 PAUSE
 netsh trace stop
