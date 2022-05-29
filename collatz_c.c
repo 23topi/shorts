@@ -21,5 +21,5 @@ main (void){
         }
     }
     printf("1");
-    return0;
+    return 0;
 }
