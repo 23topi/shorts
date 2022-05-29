@@ -18,7 +18,7 @@ main (void){
         else {
             n = (3 * n) + 1;
         }
-        printf("%d, ", n);
+        printf("%d ", n);
         counter += 1;
     }
     printf("\nEs sind %d Iterationen nötig", counter);
