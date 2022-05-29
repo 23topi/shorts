@@ -21,6 +21,6 @@ main (void){
         printf("%d, ", n);
         counter += 1;
     }
-    printf("\nEs sind %d Schritte nötig", counter);
+    printf("\nEs sind %d Iterationen nötig", counter);
     return 0;
 }
