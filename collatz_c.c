@@ -10,6 +10,7 @@ main (void){
     printf("\n");
   
     while(n != 1){
+        //printf("%d, ", n);
         printf("%d\n", n);
         
         if(n%2 == 0){
