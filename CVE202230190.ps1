@@ -11,7 +11,6 @@ If (Test-Path $testdatei)
 
 else
 {
-
     
     # Write-Host -BackGroundColor red "Die Datei $($testdatei) existiert nicht und wird angelegt."
     
