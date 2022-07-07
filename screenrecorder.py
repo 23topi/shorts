@@ -2,7 +2,7 @@ import cv2
 import keyboard
 import numpy as np
 import pyautogui
-import time
+
 
 # print(cv2.__version__)
 
