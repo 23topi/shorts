@@ -1,46 +1,46 @@
-PS Cmdlets:
+#PS Cmdlets:
 
 Get-Command -modul NetTCPIP
 
-Show specific port:
+#Show specific port:
 
 Get-NetUDPEndpoint -LocalPort 5353
 
-Port and Process with depending IP:
+#Port and Process with depending IP:
 
 Get-NetUDPEndpoint -LocalPort 5353 |Select-Object LocalAddress,LocalPort,OwningProcess,@{ Name= "ProcessName"; Expression= {((Get-Process -Id $_.OwingProcess).Name)}}
 
-Show open UDP ports:
+#Show open UDP ports:
 
 Get-NetUDPEndpoint
 
-or:
+#or:
 
 Get-NetUDPEndpoint -LocalAddress 127.0.0.1
 
-IP Address (all):
+#IP Address (all):
 
 Get-NetIPAddress
 
-or:
+#or:
 
 Get-NetIPConfiguration | ft  # ft=format table
 
-Connection check:
+#Connection check:
 
 Test-NetConnection <IP-Address>
 
-or with portnumber:
+#or with portnumber:
 
 Test-NetConnection <IP-Address> -Port <portnumber>
 
-more infos:
+#more infos:
 
 Test-NetConnection -InformationLevel "Detailed"
 
 Test-NetConnection -ComputerName -DiagnoseRouting -InformationLevel "Detailed"
 
-Ports and depending connection to IPs:
+#Ports and depending connection to IPs:
 
 Get-NetTCPConnection
 Get-NetTCPConnection - State Established #only established connections
@@ -48,6 +48,6 @@ Get-NetTCPConnection -AppliedSetting Internet #connections to the internet
 
 Get-NetTCPConnection -OwningProcess
 
-or:
+#or:
 
 netstat -banvo
