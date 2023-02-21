@@ -1,0 +1,32 @@
+import sys
+import hashlib
+
+def hashfile(file):
+    BUF_SIZE = 65536
+
+    sha256 = hashlib.sha256()
+
+    with open(file, 'rb') as f:
+
+        while True:
+
+            data = f.read(BUF_SIZE)
+
+            if not data:
+                break
+
+            sha256.update(data)
+
+    return sha256.hexdigest()
+
+f1_hash = hashfile(sys.argv[1])
+f2_hash = input("bitte Wert eingeben: ")
+
+if f1_hash == f2_hash:
+    print("Both files are same")
+    print(f"Hash: {f1_hash}")
+
+else:
+    print("Files are different!")
+    print(f"Hash of File 1: {f1_hash}")
+    print(f"Hash of File 2: {f2_hash}")
