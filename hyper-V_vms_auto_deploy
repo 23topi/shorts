@@ -1,0 +1,35 @@
+# VM-Konfiguration
+
+# Execution Policy (Unrestricted, Restricted, RemoteSigned)
+Set-ExecutionPolicy Unrestricted
+
+$VMNames = @("VM1","VM2","VM3")
+$VMVHDPath = "C:\ProgramData\Microsoft\Windows\Virtual Hard Disks\"
+$VMVHDSize = 21474836480
+$VMGeneration = "2"
+$VMSwitchName = "privat_nur_intern"
+
+
+# Erstelle virtuelle Switch
+# New-VMSwitch -Name $VMSwitchName -NetAdapterName "Ethernet" -AllowManagementOS $true
+
+# Erstellen der VM kein UEFI, DVD first boot device, Debian install when boot
+
+foreach ($VMName in $VMNames) {
+New-VM -Name $VMName -MemoryStartupBytes 2GB -NewVHDPath "$VMVHDPath$VMName.vhdx" -NewVHDSizeBytes $VMVHDSize -Generation $VMGeneration -SwitchName $VMSwitchName
+Add-VMDvdDrive -VMName $VMName
+Set-VMProcessor -VMName $VMName -Count 2
+Set-VMDvdDrive -VMName $VMName -Path "path:\to .iso file\"
+Set-VMFirmware -VMName $VMName -EnableSecureBoot Off
+}
+
+
+# Starte virtuelle Maschinen
+# Start-VM -Name $VMName1
+# Start-VM -Name $VMName2
+# Start-VM -Name $VMName3
+
+foreach ($VMName in $VMNames) {
+Start-VM -Name $VMName
+}
+
