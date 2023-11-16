@@ -9,3 +9,5 @@ w32tm /config /syncfromflags:manual /manualpeerlist:"IP-Address" /update /reliab
 net start w32time
 
 w32tm /resync
+
+PAUSE
